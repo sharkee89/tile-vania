@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
         Run();
         ClimbLadder();
         Jump();
+        Shoot();
         Die();
         FlipSprite();
     }
@@ -55,6 +56,13 @@ public class Player : MonoBehaviour
             print("Jumping!");
             Vector2 jumpBelocityToAdd = new Vector2(myRigidbody.velocity.x, jumpSpeed);
             myRigidbody.velocity += jumpBelocityToAdd;
+        }
+    }
+
+    private void Shoot () {
+        if (CrossPlatformInputManager.GetButton("Fire1")) {
+            print("Shooting!");
+            playerAnimator.Play("Shooting");
         }
     }
 
